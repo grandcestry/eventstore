@@ -90,8 +90,8 @@ defmodule EventStore.Storage.Database do
 
     encoding = opts[:encoding] || "UTF8"
 
-    default_database = Keyword.get(opts, :default_database, "postgres")
-    opts = Keyword.put(opts, :database, default_database)
+    # default_database = Keyword.get(opts, :default_database, "postgres")
+    # opts = Keyword.put(opts, :database, default_database)
 
     command =
       ~s(CREATE DATABASE "#{database}" ENCODING '#{encoding}')
@@ -120,8 +120,8 @@ defmodule EventStore.Storage.Database do
 
     command = "DROP DATABASE \"#{database}\""
 
-    default_database = Keyword.get(opts, :default_database, "postgres")
-    opts = Keyword.put(opts, :database, default_database)
+    # default_database = Keyword.get(opts, :default_database, "postgres")
+    # opts = Keyword.put(opts, :database, default_database)
 
     case run_query(command, opts) do
       {:ok, _} ->
